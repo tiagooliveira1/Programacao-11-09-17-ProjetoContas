@@ -29,15 +29,13 @@ public class Conta {
 	 * Realiza um saque na conta 
 	 * @return
 	 */
-	public void sacar(float valor) throws SaldoInsuficienteException {
+	public boolean sacar(float valor) throws SaldoInsuficienteException {
 		if(valor > this.saldo)
 			throw new SaldoInsuficienteException();
 		else	
 			this.saldo = this.saldo - valor;
-			/*if(this instanceof ContaCorrente)
-				this.saldo = this.saldo - valor;
-			else
-				this.saldo = this.saldo - valor - (valor * (this.taxaSaque/100)); */
+		
+		return true;
 		
 	}
 	

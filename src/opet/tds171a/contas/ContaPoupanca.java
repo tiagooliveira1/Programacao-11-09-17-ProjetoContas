@@ -22,10 +22,18 @@ public class ContaPoupanca extends Conta {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void sacar(float valor) throws SaldoInsuficienteException {
-		float valorAdicional = (valor * (this.taxaSaque/100));
-		float valorAjustado = valor + valorAdicional;
-		super.sacar(valorAjustado);
+	/**
+	 * Realiza o saque, calculando o adicional com taxa de saque
+	 */
+	public boolean sacar(float valor) throws SaldoInsuficienteException {
+
+		float valorAjustado = valor + (valor * (this.taxaSaque/100));
+		try {
+			super.sacar(valorAjustado);
+		} catch (Exception e) {
+			throw new SaldoInsuficienteException();
+		}
+		return true;
 	}
 	
 
