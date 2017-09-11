@@ -13,7 +13,7 @@ public class Conta {
 
 	private int numeroConta;
 	private float saldo;
-	private float taxaSaque = 10.00f;
+	
 	
 	/**
 	 * Construtor da classe
@@ -33,10 +33,11 @@ public class Conta {
 		if(valor > this.saldo)
 			throw new SaldoInsuficienteException();
 		else	
-			if(this instanceof ContaCorrente)
+			this.saldo = this.saldo - valor;
+			/*if(this instanceof ContaCorrente)
 				this.saldo = this.saldo - valor;
 			else
-				this.saldo = this.saldo - valor - (valor * (this.taxaSaque/100));
+				this.saldo = this.saldo - valor - (valor * (this.taxaSaque/100)); */
 		
 	}
 	
@@ -49,10 +50,18 @@ public class Conta {
 		return this.saldo;
 	}
 
+	/**
+	 * Retorna o número da conta
+	 * @return
+	 */
 	public int getNumeroConta() {
 		return numeroConta;
 	}
 
+	/**
+	 * Seta o número da conta
+	 * @param numeroConta
+	 */
 	public void setNumeroConta(int numeroConta) {
 		this.numeroConta = numeroConta;
 	}
