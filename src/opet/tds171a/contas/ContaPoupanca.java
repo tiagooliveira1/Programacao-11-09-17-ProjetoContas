@@ -28,11 +28,7 @@ public class ContaPoupanca extends Conta {
 	public boolean sacar(float valor) throws SaldoInsuficienteException {
 
 		float valorAjustado = valor + (valor * (this.taxaSaque/100));
-		try {
-			super.sacar(valorAjustado);
-		} catch (Exception e) {
-			throw new SaldoInsuficienteException();
-		}
+		super.sacar(valorAjustado);
 		return true;
 	}
 	

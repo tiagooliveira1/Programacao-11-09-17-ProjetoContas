@@ -22,7 +22,7 @@ public class Main {
 		
 		ContaPoupanca contaPoupanca = new ContaPoupanca(4011, 1000f);
 		try {
-			contaPoupanca.sacar(100.00f);
+			contaPoupanca.sacar(1000.00f);
 			System.out.println("Saldo da conta: "+ contaPoupanca.saldo() );
 		} catch (Exception e) {
 			System.out.println( e.getMessage() );
